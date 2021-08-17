@@ -1,0 +1,54 @@
+body{
+    background-color: grey;
+}
+
+.TodoApp{
+    background-color: cadetblue;
+    margin: 40px auto;
+    width : 550px;
+    min-height: 600px;
+   
+}
+
+.TodoApp h2{
+    text-align: center;
+   
+}
+
+#todo-form-id input{
+    width: 300px;
+    margin: 0 40px;
+    height: 50px;
+    background-color: rgb(12, 196, 180);
+    border: 0;
+    font-size: 16px;
+    color: black;
+    font-weight: bolder;
+    padding: 0 20px;
+    border-radius: 10px;
+}
+
+#todo-form-id input::placeholder{
+    color: grey;
+    font-size: 16px;
+}
+
+#todo-form-id input:focus, button:focus{
+    outline: none;
+}
+
+#todo-form-id button{
+    height: 50px;
+    background-color: lightgreen;
+    border: 0;
+    width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 16px;
+   
+}
+
+#todo-form-id button:hover{
+    background-color: limegreen;
+}
