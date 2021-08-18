@@ -20,29 +20,43 @@ class TodoApp extends Component {
 
     }
 
-    handleChangeEvent = (event) => {
-        this.setState({
-            currentItem: {
-                item: event.target.value,
-                key: Date.now()
-            }
-        })
-    }
+    // handleChangeEvent = (event) => {
+    //     this.setState({
+    //         currentItem: {
+    //             item: event.target.value,
+    //             key: Date.now()
+    //         }
+    //     })
+    // }
 
     addItem = (event) => {
 
-        event.preventDefault()
 
-        const tempList = this.state.list
-        const currentItem = this.state.currentItem
-        const todoList = [currentItem, ...tempList]
-        this.setState({
-            list: todoList,
-            currentItem: {
-                item: '',
-                key: ''
+
+        event.preventDefault()
+        const textelement = document.getElementById("textId").value
+
+        if (textelement !== null && textelement.trim() !== "") {
+            const tempList = this.state.list
+
+            const currentItem = {
+                item: textelement,
+                key: Date.now()
             }
-        })
+            const todoList = [currentItem, ...tempList]
+            this.setState({
+                list: todoList,
+                currentItem: {
+                    item: '',
+                    key: ''
+                }
+            })
+            document.getElementById("textId").value = ""
+
+        }
+        else {
+            alert("Please enter input text value ... it can't be empty or have blank spaces")
+        }
     }
 
     deleteItem(key) {
@@ -76,7 +90,7 @@ class TodoApp extends Component {
                 <div>
                     <header>
                         <form id="todo-form-id" onSubmit={this.addItem}>
-                            <input type="text" placeholder="Enter Text" value={this.state.currentItem.item} onChange={this.handleChangeEvent}></input>
+                            <input id="textId" type="text" placeholder="Enter Text" ></input>
                             <button type="submit">Add</button>
                         </form>
                     </header>
